@@ -87,7 +87,7 @@ namespace CS3358_FA2021
 
    void sequence::start()
    {
-      cout << "start() not implemented yet" << endl;
+      current_index = 0;
    }
 
    void sequence::advance()
