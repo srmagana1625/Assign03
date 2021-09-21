@@ -64,7 +64,7 @@ namespace CS3358_FA2021
 
    sequence::~sequence()
    {
-      cout << "~sequence() not implemented yet" << endl;
+      delete [] data;
    }
 
    // MODIFICATION MEMBER FUNCTIONS
