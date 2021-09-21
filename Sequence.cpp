@@ -97,8 +97,21 @@ namespace CS3358_FA2021
 
    void sequence::insert(const value_type& entry)
    {
-      cout << "insert(const value_type& entry) not implemented yet" << endl;
+      // if used = 0 
+         // data[0] = entry 
+      // chekc that the capacityis the right size
+      // shift every item in the sequence to the right one 
+      // set data[0] = entry
+      if (used = 0) {
+         data[0] = entry;
+      } else {
+          for (int i = 1 ; i <= used; i++) {
+            data[i + 1] = data[i];
+         }
+         data [0] = entry;
+      }
    }
+
 
    void sequence::attach(const value_type& entry)
    {
