@@ -46,14 +46,20 @@ using namespace std;
 namespace CS3358_FA2021
 {
    // CONSTRUCTORS and DESTRUCTOR
-   sequence::sequence(size_type initial_capacity)
+   sequence::sequence(size_type initial_capacity) : used(0), capacity(initial_capacity)
    {
-      cout << "sequence(size_type initial_capacity) not implemented yet" << endl;
+      if (capacity < 0 ){
+         capacity = 1;
+      }
+   data = new value_type[capacity];
    }
 
-   sequence::sequence(const sequence& source)
+   sequence::sequence(const sequence& source) : used(source.used), capacity(source.capacity)
    {
-      cout << "sequence(const sequence& source) not implemented yet" << endl;
+     data = new value_type[capacity];
+     for (size_type i = 0; i < used; ++i) {
+        data[i] = source.data[i];
+     }
    }
 
    sequence::~sequence()
