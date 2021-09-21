@@ -70,7 +70,19 @@ namespace CS3358_FA2021
    // MODIFICATION MEMBER FUNCTIONS
    void sequence::resize(size_type new_capacity)
    {
-      cout << "resize(size_type new_capacity) not implemented yet" << endl;
+      if (new_capacity < used) {
+         new_capacity = used;
+      }
+      if (new_capacity < 1) {
+         new_capacity = 1;
+      }
+      capacity = new_capacity;
+      value_type * newData = new value_type[capacity];
+      for (size_type i = 0; i < used; ++i) {
+         newData[i] = data[i];
+      }
+      delete [] data;
+      data = newData;
    }
 
    void sequence::start()
