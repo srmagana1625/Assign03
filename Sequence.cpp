@@ -97,19 +97,15 @@ namespace CS3358_FA2021
 
    void sequence::insert(const value_type& entry)
    {
-      // if used = 0 
-         // data[0] = entry 
-      // chekc that the capacityis the right size
-      // shift every item in the sequence to the right one 
-      // set data[0] = entry
-      if (used = 0) {
+      if (used == 0) {
          data[0] = entry;
       } else {
-          for (int i = 1 ; i <= used; i++) {
+          for (size_type i = 1 ; i <= used; i++) {
             data[i + 1] = data[i];
          }
          data [0] = entry;
       }
+      used++;
    }
 
 
@@ -132,20 +128,23 @@ namespace CS3358_FA2021
    // CONSTANT MEMBER FUNCTIONS
    sequence::size_type sequence::size() const
    {
-      cout << "size() not implemented yet" << endl;
-      return 0; // dummy value returned
+      return used;
    }
 
    bool sequence::is_item() const
    {
-      cout << "is_item() not implemented yet" << endl;
-      return false; // dummy value returned
+      if (used > 0) {
+         return true;
+      } else {
+         return false; 
+         cout << "used is empty" << endl;
+      }
    }
 
    sequence::value_type sequence::current() const
    {
-      cout << "current() not implemented yet" << endl;
-      return value_type(); // dummy value returned
+      assert(is_item());
+      return data[0]; // dummy value returned
    }
 }
 
