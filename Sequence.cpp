@@ -106,14 +106,10 @@ namespace CS3358_FA2021
    {
       if (used == 0) {
          data[0] = entry;
-         cout << "the capacity is " << capacity << endl;
       } else {
+         if (used + 1 > capacity ) {resize (value_type(1.5*used) + 1) ;}
          for (size_type i = used; i > 0; i--) {
-         cout << "the iterator i has the value " << i << endl;
-         cout << "used is " << used << endl;
-         cout << "data at data[used-1] is " << data[used-1] << endl;
-         data[i] = data[i -1];
-         cout << "moved data[i-1] " << data[i -1] << " one spot to the right. data[i] = " << data[i] << endl;
+            data[i] = data[i -1];
       }
       data [0] = entry;
    }
@@ -157,7 +153,6 @@ namespace CS3358_FA2021
    sequence::value_type sequence::current() const
    {
       assert(is_item());
-      cout << "printing the data at current index " << data[current_index] << endl;
       return data[current_index];
    }
 }
