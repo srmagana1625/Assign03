@@ -92,21 +92,33 @@ namespace CS3358_FA2021
 
    void sequence::advance()
    {
-      cout << "advance() not implemented yet" << endl;
+      // assert(is_item());
+      // //if the current item does not equal the last item in the list
+      // if ( !(data[current_index] = data[used - 1]) ) {
+      // //set curr item = next item in sequence which is 
+      //    cout << "setting current value equal to the next" << endl;
+      //    data[current_index] = data[current_index + 1];
+      // }
+      cout << "advance not implemented yet" << endl;
    }
 
    void sequence::insert(const value_type& entry)
    {
       if (used == 0) {
          data[0] = entry;
+         cout << "the capacity is " << capacity << endl;
       } else {
-          for (size_type i = 1 ; i <= used; i++) {
-            data[i + 1] = data[i];
-         }
-         data [0] = entry;
+         for (size_type i = used; i > 0; i--) {
+         cout << "the iterator i has the value " << i << endl;
+         cout << "used is " << used << endl;
+         cout << "data at data[used-1] is " << data[used-1] << endl;
+         data[i] = data[i -1];
+         cout << "moved data[i-1] " << data[i -1] << " one spot to the right. data[i] = " << data[i] << endl;
       }
-      used++;
+      data [0] = entry;
    }
+   used++;
+}
 
 
    void sequence::attach(const value_type& entry)
@@ -134,17 +146,19 @@ namespace CS3358_FA2021
    bool sequence::is_item() const
    {
       if (used > 0) {
+         cout << "is_item is true" << endl;
          return true;
       } else {
+         cout << "is item is false" << endl;
          return false; 
-         cout << "used is empty" << endl;
       }
    }
 
    sequence::value_type sequence::current() const
    {
       assert(is_item());
-      return data[0]; // dummy value returned
+      cout << "printing the data at current index " << data[current_index] << endl;
+      return data[current_index];
    }
 }
 
